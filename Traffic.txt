@@ -1,0 +1,1 @@
+select from_itime(itime) as itime, coalesce(nullifna(`user`), ipstr(`srcip`)) as source, `dstip`, `service`, `sentpkt` from $log where $filter and (logflag&1>0) and ( ( not (`dstip` = inet('172.16.3.26'))) AND (not (`dstip` = inet('172.16.3.27'))))
